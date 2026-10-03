@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ff-wallpaper-1",
+    "game": "free-fire",
+    "file": "free-fire/wallpaper-1.jpg",
+    "url": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/c183eba8545abc233e07edce55dcfa1a.jpg",
+    "source": "https://ff.garena.com/vn/wallpaper/",
+    "rights": "Official download; publisher copyright. No general redistribution license verified.",
+    "sha256": "6802a609235d13e084048db4152008c96acad6cfc437ed485a5e8e5bfae43a40"
+  },
+  {
+    "id": "ff-wallpaper-2",
+    "game": "free-fire",
+    "file": "free-fire/wallpaper-2.jpg",
+    "url": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/a2d2f5e1d8967c5aea7bf74e7b19feb5.jpg",
+    "source": "https://ff.garena.com/vn/wallpaper/",
+    "rights": "Official download; publisher copyright. No general redistribution license verified.",
+    "sha256": "c14079d5c55b49dbe3eb899feec21aad2cc2c0730b995af5dc49aa90814fc2fe"
+  },
+  {
+    "id": "ff-wallpaper-3",
+    "game": "free-fire",
+    "file": "free-fire/wallpaper-3.jpg",
+    "url": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/2948c5440dc5819d97df46c0946fde1d.jpg",
+    "source": "https://ff.garena.com/vn/wallpaper/",
+    "rights": "Official download; publisher copyright. No general redistribution license verified.",
+    "sha256": "518a47de8ffeb6f9e03bcb78fad8b533b3019137fb0e8228b7bb84febd14e4cd"
+  },
+  {
+    "id": "ff-wallpaper-4",
+    "game": "free-fire",
+    "file": "free-fire/wallpaper-4.jpg",
+    "url": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/img/20228/d58f1d59681e9a14fda480a9d1ed825b.jpg",
+    "source": "https://ff.garena.com/vn/wallpaper/",
+    "rights": "Official download; publisher copyright. No general redistribution license verified.",
+    "sha256": "4fae19cbcb455484388e6f9775bd8509770141604bc5d0e0b2dc4da7f0b08831"
+  },
+  {
+    "id": "krixi",
+    "game": "lien-quan",
+    "file": "lien-quan/krixi.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/06/Krixi-featured.jpg",
+    "source": "https://lienquan.garena.vn/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "fb2c41cbaca32a332ba2ee677e180db2cc084c5537399b5b2ce021b89947e2d7"
+  },
+  {
+    "id": "valhein",
+    "game": "lien-quan",
+    "file": "lien-quan/valhein.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/06/Val.jpg",
+    "source": "https://lienquan.garena.vn/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "0293f5ff6af9d58a99fc584da681e730f5a8868871a2ff386c9231f416e1deeb"
+  },
+  {
+    "id": "trieu-van",
+    "game": "lien-quan",
+    "file": "lien-quan/trieu-van.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/06/trieu-van.jpg",
+    "source": "https://lienquan.garena.vn/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "448396239349ea7cebae55be808fe920614c0939c7bf25063e427d4c7953bfc7"
+  },
+  {
+    "id": "nakroth",
+    "game": "lien-quan",
+    "file": "lien-quan/nakroth.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/05/50a88477e44151ee8ef4cfb354c22fdc5ec64ff164ffc1.jpg",
+    "source": "https://lienquan.garena.vn/hoc-vien/tuong-skin/d/nakroth/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "b7657d3f443aedd723e4b2320cd15229f9e336d7035a0a7762bf5afd395d25a2"
+  },
+  {
+    "id": "nakroth-bboy",
+    "game": "lien-quan",
+    "file": "lien-quan/nakroth-bboy.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/05/995f2c0aed2b757d6f45dd32510ce1075c49395e2ce761.jpg",
+    "source": "https://lienquan.garena.vn/hoc-vien/tuong-skin/d/nakroth/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "23c3787e69b6078f12521643a49e964c06b0b35ddccd1e2aa957c8c0da697e69"
+  },
+  {
+    "id": "nakroth-sieu-viet",
+    "game": "lien-quan",
+    "file": "lien-quan/nakroth-sieu-viet.jpg",
+    "url": "https://lienquan.garena.vn/wp-content/uploads/2024/05/4979a701cac42039c9ceaaf3a2c3e6765ec6507a8be871.jpg",
+    "source": "https://lienquan.garena.vn/hoc-vien/tuong-skin/d/nakroth/",
+    "rights": "Official site artwork; publisher copyright. No general redistribution license verified.",
+    "sha256": "f0a2ceb3da038c802deacf201c3207354f9981ece6b844de6e1de29ab70ac36e"
+  }
+]

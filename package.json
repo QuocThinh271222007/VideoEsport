@@ -1,0 +1,37 @@
+{
+  "name": "videoesport",
+  "version": "1.0.0",
+  "description": "Deterministic Three.js esports club intro film \u2014 48 seconds",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "assets": "node scripts/download-assets.mjs",
+    "import:valorant": "node scripts/import-valorant.mjs",
+    "render": "node scripts/render.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuocThinh271222007/VideoEsport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/QuocThinh271222007/VideoEsport/issues"
+  },
+  "homepage": "https://github.com/QuocThinh271222007/VideoEsport#readme",
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/be-vietnam-pro": "^5.3.0",
+    "three": "^0.186.1",
+    "vite": "^8.3.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2",
+    "sharp": "^0.35.5"
+  },
+  "private": true
+}
