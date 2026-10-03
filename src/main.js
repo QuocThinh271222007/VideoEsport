@@ -29,9 +29,14 @@ function renderAt(seconds){
  const state=world.draw(current,s,envelope[Math.min(envelope.length-1,Math.floor(current*60))]||0),castKey=state.active?.name||'';
  if(castKey!==previousCast){previousCast=castKey;$('#hero-name').textContent=castKey;$('#hero-line').textContent=state.active?.line||''}
  const slot=casts[s.kind]?duration/casts[s.kind].length:duration,shot=local%slot;
- $('#hero').style.opacity=casts[s.kind]?smooth((shot-.5)/.5)*(1-smooth((shot-slot+.45)/.45)):0;$('#hero').style.transform=`translateY(${(1-smooth(shot/.8))*45}px)`;
+ const action=!!casts[s.kind];$('#film').classList.toggle('action',action);
+ if(action){const title=smooth(local/.12)*(1-smooth((local-.75)/.3));$('#copy').style.opacity=title;$('#copy').style.transform=`translate3d(${(1-title)*-100}px,0,0) scale(${1+(1-title)*.25})`;}
+ else if(s.kind==='intro'){$('#copy').style.opacity=smooth((local-2.35)/.25)*exit;}
+ $('#film').dataset.phase=state.phase;
+ $('#hero').style.opacity=casts[s.kind]?smooth((shot-.65)/.18)*(1-smooth((shot-1.6)/.15)):0;$('#hero').style.transform=`translateY(${(1-smooth(shot/.8))*45}px)`;
  $('#shot-index').textContent=casts[s.kind]?`${String(Math.min(casts[s.kind].length,Math.floor(local/slot)+1)).padStart(2,'0')} / ${String(casts[s.kind].length).padStart(2,'0')}`:'';
- $('#wipe').style.opacity=n?Math.max(0,1-local/.22)*.24:0;$('#curtain').style.opacity=Math.max(1-smooth(current/.7),smooth((current-film.duration+1.1)/1.1));
+ $('#wipe').style.opacity=Math.max(n?Math.max(0,1-local/.12)*.24:0,state.impact*.12);
+ $('#wipe').style.background=s.color;$('#curtain').style.opacity=Math.max(1-smooth(current/.7),smooth((current-film.duration+1.1)/1.1));
  $('#credit').style.opacity=s.kind==='outro'?smooth((local-1)/.5)*(1-smooth((local-5)/1)):0;
  $('#scrub').value=current;$('#time').textContent=`00:${String(Math.floor(current)).padStart(2,'0')} / 00:${film.duration}`;
  return {time:current,scene:s.kind,...state};

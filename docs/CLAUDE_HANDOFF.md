@@ -1,4 +1,4 @@
-# Bàn giao Claude — Cinematic v2
+# Bàn giao Claude — Action Trailer v3
 
 ## Yêu cầu đã nhận
 
@@ -26,3 +26,9 @@ Tên/logo CLB, lời đọc, giọng mong muốn sau khi nghe mẫu, ảnh hoạ
 `npm run build`; `npm run check` kiểm tra runtime asset/hash, timeline, từng lượt cast, khoảng di chuyển chiều sâu, browser errors và tua lặp lại. Cho phép sai số raster GPU 1/255 trên tối đa 0.1% số kênh ảnh, không chấp nhận thay đổi lớn hơn. Render xong kiểm tra FFprobe: H.264, 1920×1080, 60fps, 56 giây; AAC stereo; xem khung hình đầu/giữa/cuối.
 
 Máy Codex dùng Chrome tạm ở `/tmp/esport-chromium/chromium` vì CDN Playwright trả tệp sai. Máy người dùng ưu tiên `npx playwright install chromium`. Không thêm workaround riêng của máy này vào dependencies.
+
+## V3 — phản hồi và sửa đổi
+
+Người dùng không chấp nhận cách show từng trang thô; yêu cầu kịch tính, nhiều chuyển động và nhân vật chuyển động cơ bản. V3 thay toàn bộ world.js: môi trường cột kiến trúc, ảnh nhân vật dạng lưới có local joint weights; 4 cỡ cảnh trong mỗi lượt; vào/ra cảnh riêng theo nhân vật; điện, khói, cổng, slash, afterimage. CSS/main.js bỏ cột chữ cố định, title chỉ hiện ngắn, hero-name hiện khoảng 0,65–1,75s của lượt. FF/LQ dùng artwork tràn khung và local mesh warping nhẹ. Không có model 3D rigged hoặc chuyển động tay/chân độc lập chính xác về giải phẫu; không hứa chạy/đánh như footage game.
+
+Cues mới đồng bộ SFX tại các mốc ra đòn. Sau git pull chạy `npm run audio` lại để cập nhật nhạc. Check bổ sung chuyển động cục bộ hữu hạn và ảnh QA các mốc nhập cảnh/cận/ra đòn. Các asset hình gốc được giữ nguyên.

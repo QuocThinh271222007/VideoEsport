@@ -17,5 +17,5 @@ export const casts = {
  'free-fire':[{asset:'ff1',name:'BẢN LĨNH',line:'SẴN SÀNG GIAO TRANH'},{asset:'ff2',name:'BỨT PHÁ',line:'MỖI NGƯỜI MỘT THẾ MẠNH'},{asset:'ff3',name:'CHINH PHỤC',line:'CHUNG MỘT ĐÍCH ĐẾN'}],
  'lien-quan':[{asset:'lq1',name:'NAKROTH',line:'MỞ LỐI GIAO TRANH'},{asset:'lq2',name:'TRIỆU VÂN',line:'TIẾN LÊN CÙNG ĐỒNG ĐỘI'},{asset:'lq3',name:'VALHEIN',line:'PHỐI HỢP ĐỂ BỨT PHÁ'}],
 };
-export const cues=[0,6,10,14,18,22,26,30,34,38,42,46,50];
+export const cues=[0,2.5,6,8.78,10,12.78,14,16.78,18,20.78,22,24.78,26,28.78,30,32.78,34,36.78,38,40.78,42,44.78,46,47,48,49,50];
 export const audioConfig={source:'public/assets/audio/the-fury-source.mp3',start:144,soundtrack:'public/assets/audio/soundtrack.mp3',preview:'/assets/audio/soundtrack.mp3',credit:'The Fury — Scott Buckley · CC BY 4.0 · www.scottbuckley.com.au'};

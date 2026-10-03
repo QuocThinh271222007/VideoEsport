@@ -19,3 +19,7 @@
 SFX do code tạo ở các mốc chuyển lượt; nhạc trích đoạn The Fury từ 144–200 giây và điều chỉnh âm lượng/fade. Ánh sáng lấy dữ liệu RMS của track đã phối. Không khẳng định mọi điểm cắt trùng chính xác beat của bản nhạc.
 
 Chưa có thông tin thành tích, danh tính thành viên, logo, lịch tuyển, QR hoặc lời đọc; không tự bịa các chi tiết đó. Toàn bộ chuyển động nhân vật hiện là artwork trong không gian 3D, không phải animation cơ thể.
+
+## Nhịp dựng Action v3
+
+Mỗi lượt game 4 giây có nhịp: 0–0,72s nhập cảnh; 0,72–1,75s toàn thân/định danh; 1,75–2,75s cắt cận; 2,75–4s ra đòn/thoát. Omen nổi trong khói; Viper đứng kiểm soát khí; Neon/Yoru lướt nhanh. Nhạc có điểm SFX tại 2,78s. Intro 0–2,5s camera đi ngang đội hình trước khi chữ xuất hiện. Cảnh 46–50s đội hình bốn agent tụ lại; 50–56s CTA và credit.

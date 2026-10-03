@@ -19,9 +19,10 @@ try{
  // Allow 1/255 GPU edge rounding on at most 0.1% of channels; any larger change fails.
  let changed=0,maxDelta=0;for(let i=0;i<first.length;i++){const d=Math.abs(first[i]-second[i]);if(d)changed++;maxDelta=Math.max(maxDelta,d)}assert(maxDelta<=1&&changed<=first.length*.001,`Non-deterministic frame: ${changed} channels, max delta ${maxDelta}`);
  for(const s of scenes.filter(s=>casts[s.kind]))for(let k=0;k<casts[s.kind].length;k++){
-  const t=s.start+k*4+1.6,state=await page.evaluate(t=>window.__film.seek(t),t);assert.equal(state.active.asset,casts[s.kind][k].asset);assert(state.visible.some(v=>v.asset===state.active.asset&&v.opacity>.9));await page.screenshot({path:`output/qa/hero-${s.kind}-${k+1}.png`});
+  const t=s.start+k*4+1.6,state=await page.evaluate(t=>window.__film.seek(t),t);assert.equal(state.active.asset,casts[s.kind][k].asset);assert(state.visible.some(v=>v.asset===state.active.asset&&v.opacity>.9));assert(state.motion>.025,'Missing local body motion');await page.screenshot({path:`output/qa/hero-${s.kind}-${k+1}.png`});
  }
  const near=await page.evaluate(()=>window.__film.seek(7.2)),far=await page.evaluate(()=>window.__film.seek(6.2));assert(near.visible[0].z-far.visible[0].z>10,'Missing depth travel');
+ for(const t of [6.3,7.1,8.1,8.9,9.7,10.4,12.2,14.4,16.9,18.4,20.9,24.2,36.9]){const state=await page.evaluate(t=>window.__film.seek(t),t);assert(state.camera.every(Number.isFinite));assert(state.motion<2,'Excessive artwork deformation');await page.screenshot({path:`output/qa/action-${t}.png`});}
  for(const s of scenes.slice(1)){assert.equal((await page.evaluate(t=>window.__film.seek(t),s.start)).scene,s.kind)}
  assert.equal(errors.length,0,errors.join('\n'));console.log('PASS: assets, sources, timeline, scene transitions, deterministic seek, browser errors.');
 }finally{await browser?.close();await server.close()}

@@ -1,7 +1,7 @@
 {
   "name": "videoesport",
-  "version": "2.0.0",
-  "description": "56-second cinematic esports film with depth staging and music",
+  "version": "3.0.0",
+  "description": "56-second action esports trailer with animated artwork, editorial cuts and synchronized effects",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",

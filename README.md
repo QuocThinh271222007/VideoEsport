@@ -1,6 +1,6 @@
-# VideoEsport — Cinematic v2
+# VideoEsport — Action Trailer v3
 
-Video ngang **56 giây**, scene Three.js có chiều sâu, nhân vật/artwork xuất hiện theo lượt, nhạc hành động và SFX chuyển cảnh. Mục tiêu xuất **1920×1080 / 60fps**. Tên ban đang dùng chữ tạm đã được người dùng chọn; chưa có logo CLB chính thức và lời đọc.
+Video ngang **56 giây**, dựng theo nhịp trailer hành động: cảnh rộng → cận → ra đòn, chuyển động thân/tay/đầu trên lưới ảnh, camera đổi góc và hiệu ứng theo từng nhân vật. Mục tiêu xuất **1920×1080 / 60fps**. Tên ban đang dùng chữ tạm đã được người dùng chọn; chưa có logo CLB chính thức và lời đọc.
 
 ## Chạy ngay từ repo
 
@@ -19,10 +19,19 @@ npm run dev
 ```powershell
 npx playwright install chromium
 npm run check
-npm run render -- --width=1920 --fps=60 --out=output/VideoEsport-Cinematic-v2-1080p60.mp4
+npm run render -- --width=1920 --fps=60 --out=output/VideoEsport-Action-v3-1080p60.mp4
 ```
 
 Xem nhanh: `npm run render -- --width=1280 --fps=30`. Xuất đoạn thử: thêm `--from=6 --to=12`. Mỗi frame lấy thời gian chính xác; tốc độ máy chỉ ảnh hưởng thời gian chờ render. `CHROME_PATH` có thể trỏ tới Chrome có sẵn nếu không tải được trình duyệt Playwright.
+
+## Thay đổi v3 sau phản hồi người dùng
+
+- Bỏ bố cục trình chiếu, khung artwork và cột chữ cố định. Tên game chỉ xuất hiện ngắn; hình ảnh chiếm toàn màn hình.
+- Mỗi lượt có nhiều cỡ cảnh và cắt góc rõ: nhập cảnh, toàn thân, cận, hành động/thoát cảnh.
+- Lưới ảnh có chuyển động cục bộ ở vai/tay, đầu, ngực, chân và áo choàng. Các biến đổi phụ thuộc thời gian tuyệt đối nên tua lại không lệch.
+- Neon: lao chéo, vệt ảnh và tia điện. Omen: nổi trong khói/cổng tím. Yoru: lướt và vệt chém xanh. Viper: nhịp thân/tay và khí xanh.
+- Free Fire/Liên Quân: artwork tràn khung, chuyển góc cận, biến dạng cục bộ nhẹ và hiệu ứng hành động. Chưa có ảnh tách từng bộ phận hay model rigged; không mô tả đây là animation gameplay.
+- Nhạc/SFX được phối lại theo thêm các mốc ra đòn (2,78 giây trong từng lượt) và đoạn hội tụ.
 
 ## Nội dung và chuyển động
 
@@ -42,7 +51,7 @@ Nhạc **The Fury — Scott Buckley**, CC BY 4.0, dùng miễn phí khi ghi ngu�
 [Hướng dẫn giọng Việt hào hùng và ghép giọng](docs/VOICE_GUIDE.md). Hai cách: tạo giọng sẵn trên ElevenLabs rồi tải file, hoặc dùng script API với khóa của bạn. Nhạc tự giảm khi có lời đọc. Chưa có lời đọc trong video hiện tại vì người dùng chưa gửi đoạn văn.
 
 ```powershell
-npm run mix:voice -- output/VideoEsport-Cinematic-v2-1080p60.mp4 output/narration.mp3 output/VideoEsport-with-voice.mp4 0
+npm run mix:voice -- output/VideoEsport-Action-v3-1080p60.mp4 output/narration.mp3 output/VideoEsport-with-voice.mp4 0
 ```
 
 ## Chỉnh sửa cùng Claude
