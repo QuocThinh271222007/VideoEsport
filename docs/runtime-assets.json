@@ -1,0 +1,52 @@
+[
+  {
+    "path": "public/assets/valorant/Neon.webp",
+    "bytes": 282340,
+    "sha256": "30ff0fa3540a4e13f2201a31d6f69209bd9a686f315494a4efce96c7bd5b3e89"
+  },
+  {
+    "path": "public/assets/valorant/Omen.webp",
+    "bytes": 299522,
+    "sha256": "c48ab0d1515474f6436b18adff965370736cea3fa0cfc3a86375ddc46b8f44fc"
+  },
+  {
+    "path": "public/assets/valorant/Yoru.webp",
+    "bytes": 239944,
+    "sha256": "114146d89b854ca9f61ddd5fe7629673385f4c54d5dfde4f3b25290d56de0894"
+  },
+  {
+    "path": "public/assets/valorant/Viper.webp",
+    "bytes": 226982,
+    "sha256": "00906c96a3796826263e163eb9103dc6c0b3992d387cb9e888e427288270e48f"
+  },
+  {
+    "path": "public/assets/free-fire/wallpaper-4.webp",
+    "bytes": 140540,
+    "sha256": "3dfc1e8314b8b747ee867b332eacc8922274a76fded6a08ab202d2345db59b4f"
+  },
+  {
+    "path": "public/assets/free-fire/wallpaper-2.webp",
+    "bytes": 238910,
+    "sha256": "a1ba7723891de3dd6409aeaf6e1e3028d24ccf50e1a1fdcce5e720db7f341a69"
+  },
+  {
+    "path": "public/assets/free-fire/wallpaper-1.webp",
+    "bytes": 216524,
+    "sha256": "eee5306af365fad1e05519c03d55ac0da2b08fed228fc01a756279468e8f4077"
+  },
+  {
+    "path": "public/assets/lien-quan/nakroth.webp",
+    "bytes": 226914,
+    "sha256": "13ba83d4b51cc74e303fd04aa7c887905b1ab48f88a585e9c6958d856dcd6636"
+  },
+  {
+    "path": "public/assets/lien-quan/trieu-van.webp",
+    "bytes": 163070,
+    "sha256": "2dce8d951ad7bdd1c9819f7b879d95505c49a34a8e4511abc3311870e4b0622d"
+  },
+  {
+    "path": "public/assets/lien-quan/valhein.webp",
+    "bytes": 163380,
+    "sha256": "96dc5adcc6091be94834e7b4d58018f8b3bfcc2c69c9f112c86dbdb1d1afc50e"
+  }
+]
