@@ -1,7 +1,7 @@
 {
   "name": "videoesport",
-  "version": "1.0.0",
-  "description": "Deterministic Three.js esports club intro film \u2014 48 seconds",
+  "version": "2.0.0",
+  "description": "56-second cinematic esports film with depth staging and music",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
@@ -9,7 +9,12 @@
     "assets": "node scripts/download-assets.mjs",
     "import:valorant": "node scripts/import-valorant.mjs",
     "render": "node scripts/render.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "audio": "node scripts/audio.mjs",
+    "setup": "npm run audio",
+    "voice": "node --env-file-if-exists=.env scripts/voice.mjs",
+    "voice:list": "node --env-file-if-exists=.env scripts/voice.mjs --list",
+    "mix:voice": "node scripts/mix-voice.mjs"
   },
   "repository": {
     "type": "git",

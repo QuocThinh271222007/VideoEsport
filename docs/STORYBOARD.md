@@ -1,14 +1,21 @@
-# Storyboard v0.1 — 48 giây
+# Cinematic v2 — 56 giây
 
-| Thời gian | Hình ảnh | Chữ chính | Mục đích |
-|---|---|---|---|
-| 00–06 | Không gian tối, các khung tam giác 3D chuyển động, hạt sáng xanh mint | CÙNG CHƠI. CÙNG TỎA SÁNG. | Mở chủ đề đồng đội |
-| 06–15 | Neon, Omen, Cypher dạng ảnh nền trong suốt ở ba lớp chiều sâu; điểm nhấn đỏ | VALORANT | Chiến thuật, phối hợp, bản lĩnh |
-| 15–24 | Artwork Free Fire ngang 1920×1080, camera tiến chậm; điểm nhấn vàng | FREE FIRE | Vào trận cùng nhau |
-| 24–33 | Nakroth, camera tiến chậm; điểm nhấn xanh | LIÊN QUÂN MOBILE | Năm vị trí, một mục tiêu |
-| 33–41 | Đội hình Valorant mờ phía sau, chữ đồng đội ở trước | CHUNG ĐAM MÊ. CHUNG ĐỘI HÌNH. | Giao lưu, chia sẻ, tiến bộ |
-| 41–48 | Trở về khung 3D và sắc mint | ĐỒNG ĐỘI MỚI. HÀNH TRÌNH MỚI. | Lời mời tham gia, chưa có link hoặc QR |
+| Mốc | Cảnh | Dàn dựng |
+|---|---|---|
+| 0–6 | Cùng chơi, cùng tỏa sáng | Camera đi từ xa vào đường hầm khung sáng; silhouette các nhân vật ở hậu cảnh |
+| 6–10 | Neon | Từ z=-24 tiến tới sân khấu, camera cận dần, chữ tên hiện sau nhân vật |
+| 10–14 | Omen | Neon thoát về tiền cảnh; Omen tiến vào từ hậu cảnh |
+| 14–18 | Yoru | Đổi nhân vật và góc nhìn, giữ khoảng đọc chữ |
+| 18–22 | Viper | Màn cuối Valorant, nhường sang màu vàng của Free Fire |
+| 22–26 | Free Fire — Bản lĩnh | Artwork thứ nhất trên khung nghiêng, di chuyển trong không gian |
+| 26–30 | Free Fire — Bứt phá | Artwork thứ hai tiến vào theo lượt |
+| 30–34 | Free Fire — Chinh phục | Artwork thứ ba; biểu tượng chiến thắng |
+| 34–38 | Liên Quân — Nakroth | Khung artwork tướng, màu xanh, chuyển cảnh có nhấn âm thanh |
+| 38–42 | Liên Quân — Triệu Vân | Tướng tiếp theo tiến vào |
+| 42–46 | Liên Quân — Valhein | Tướng tiếp theo tiến vào |
+| 46–50 | Chung đội hình | Ba game hội tụ thành một đội hình |
+| 50–56 | Lời mời | Nội dung ban tạm, CTA chung, credit nhạc, fade cuối |
 
-Đây là nội dung sáng tạo đề xuất, không phải dữ liệu đã xác nhận về hoạt động của CLB. Chưa khẳng định thành tích, giải đấu, lịch hoạt động, tên thành viên hoặc thời hạn tuyển.
+SFX do code tạo ở các mốc chuyển lượt; nhạc trích đoạn The Fury từ 144–200 giây và điều chỉnh âm lượng/fade. Ánh sáng lấy dữ liệu RMS của track đã phối. Không khẳng định mọi điểm cắt trùng chính xác beat của bản nhạc.
 
-Hướng vòng tiếp theo: chốt nhạc rồi căn nhịp cắt theo beat; thay cảnh 33–41 bằng hình thành viên/hoạt động thật; thêm logo và CTA/QR do người dùng cung cấp. Các ảnh nhân vật là artwork 2D đặt trong scene 3D, không phải model nhân vật có rig/animation.
+Chưa có thông tin thành tích, danh tính thành viên, logo, lịch tuyển, QR hoặc lời đọc; không tự bịa các chi tiết đó. Toàn bộ chuyển động nhân vật hiện là artwork trong không gian 3D, không phải animation cơ thể.

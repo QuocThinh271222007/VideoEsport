@@ -1,10 +1,12 @@
 node_modules/
 dist/
 output/
-public/assets/**/*.png
-public/assets/**/*.webp
-public/assets/**/*.jpg
 public/assets/**/*.wav
 public/assets/**/*.mp3
 *.zip
 .DS_Store
+.env
+.env.*
+!.env.example
+public/assets/audio/*.pcm
+public/assets/audio/

@@ -4,7 +4,7 @@
 
 `files.zip`: 22 PNG nền trong suốt, kiểm tra có alpha. Gồm Miks, Veto, Waylay, Tejo, Deadlock, Gekko, Harbor, Neon, KAYO, Astra, Yoru, Skye, Breach, Raze, Sage, Sova, Cypher, Omen, Viper, Brimstone, Iso, Chamber.
 
-Script import tạo WebP cao tối đa 1500 px, quality 88, giữ alpha và không ghi đè bản PNG gốc. Bản nháp đang dùng Neon/Omen/Cypher, có thể thay các nhân vật còn lại qua config. Không tự xác nhận tên/nguồn gốc ngoài tên file người dùng gửi.
+Script import tạo WebP cao tối đa 1500 px, quality 88, giữ alpha và không ghi đè bản PNG gốc. Bản v2 đang dùng Neon/Omen/Yoru/Viper, có thể thay các nhân vật còn lại qua config. Không tự xác nhận tên/nguồn gốc ngoài tên file người dùng gửi.
 
 ## Tải thêm từ nguồn chính thức (2026-10-03)
 
@@ -26,6 +26,6 @@ Các nguồn Valorant bổ sung đã tìm thấy nhưng chưa tải trong bản 
 
 ## Phạm vi sử dụng
 
-Đây là artwork từ nhà phát hành, không phải tài sản CC0. Không gọi đây là “miễn bản quyền”. Trang Valorant Media dẫn tới điều kiện sử dụng của Riot; bản dựng phát hành cần đối chiếu mục đích sử dụng. Với Garena, chưa xác minh giấy phép tái phân phối tổng quát. Lưu các ảnh trong bộ asset phục vụ dự án; repo công khai chỉ chứa danh mục nguồn và script tải.
+Đây là artwork từ nhà phát hành, không phải tài sản CC0. Không gọi đây là “miễn bản quyền”. Trang Valorant Media dẫn tới điều kiện sử dụng của Riot; bản dựng phát hành cần đối chiếu mục đích sử dụng. Với Garena, chưa xác minh giấy phép tái phân phối tổng quát. Theo yêu cầu người dùng, repo chứa toàn bộ 64 ảnh phục vụ dự án: 22 PNG Valorant và 22 WebP; 4 JPG Free Fire và 4 WebP; 6 JPG Liên Quân và 6 WebP. Checksum tại all-assets.json; việc lưu ảnh trong repo không chuyển quyền sở hữu hoặc cấp giấy phép mới.
 
-Chưa thu thập model 3D, âm nhạc hoặc footage từ video của nhà sáng tạo khác. Cần gameplay riêng/được phép dùng và ảnh hoạt động CLB nếu muốn đoạn phim phản ánh hoạt động thật.
+Chưa thu thập model 3D hoặc footage từ video của nhà sáng tạo khác. Nhạc v2 và giấy phép được ghi trong MUSIC_CREDITS.md. Cần gameplay riêng/được phép dùng và ảnh hoạt động CLB nếu muốn đoạn phim phản ánh hoạt động thật.

@@ -1,62 +1,58 @@
-# VideoEsport — giới thiệu ban thể thao điện tử
+# VideoEsport — Cinematic v2
 
-Bản nháp hình ảnh **48 giây, 16:9**, dùng Three.js + chữ HTML. Sáu cảnh: mở màn → Valorant → Free Fire → Liên Quân → đồng đội → lời mời tham gia. Tên ban đang để tạm theo yêu cầu. **Chưa có nhạc, lời đọc, logo CLB hoặc thông tin tuyển thành viên.**
+Video ngang **56 giây**, scene Three.js có chiều sâu, nhân vật/artwork xuất hiện theo lượt, nhạc hành động và SFX chuyển cảnh. Mục tiêu xuất **1920×1080 / 60fps**. Tên ban đang dùng chữ tạm đã được người dùng chọn; chưa có logo CLB chính thức và lời đọc.
 
-## Chạy trên Windows / VS Code
+## Chạy ngay từ repo
 
-Cần Node.js 22.12+ hoặc 24 LTS. Mở terminal tại thư mục dự án:
+Cần Node.js 22.12+ (hoặc 24 LTS) và FFmpeg trong PATH. Các ảnh WebP đang dùng đã có trong repo, không cần tải lại ZIP để xem video.
 
 ```powershell
 npm ci
-npm run assets
-```
-
-Giải nén `files.zip` người dùng cung cấp ra một thư mục, rồi nhập ảnh:
-
-```powershell
-npm run import:valorant -- "C:\duong-dan\files"
+npm run setup
 npm run dev
 ```
 
-Mở địa chỉ localhost mà Vite in ra. Có nút phát/dừng, thanh tua và toàn màn hình. Có thể thay bước tải/import bằng cách giải nén `VideoEsport-Assets.zip` vào gốc repo sao cho ảnh nằm ở `public/assets/…`.
+`setup` tải bản nhạc gốc từ tác giả (kiểm tra SHA-256), cắt/phối nhạc với SFX và tạo dữ liệu cường độ âm thanh cho ánh sáng. Khi xong, preview và render dùng file cục bộ, không tải mạng trong từng frame. Mở địa chỉ localhost Vite in ra; nhấn Phát để bắt đầu cả hình và tiếng. Có tua, tắt/bật tiếng, toàn màn hình.
 
-## Xuất MP4
-
-Cài FFmpeg, thêm vào PATH; kiểm tra `ffmpeg -version`. Cài trình duyệt render:
+## Xuất video
 
 ```powershell
 npx playwright install chromium
 npm run check
-npm run render -- --width=1920 --fps=60
+npm run render -- --width=1920 --fps=60 --out=output/VideoEsport-Cinematic-v2-1080p60.mp4
 ```
 
-Xem nhanh, xuất 720p30:
+Xem nhanh: `npm run render -- --width=1280 --fps=30`. Xuất đoạn thử: thêm `--from=6 --to=12`. Mỗi frame lấy thời gian chính xác; tốc độ máy chỉ ảnh hưởng thời gian chờ render. `CHROME_PATH` có thể trỏ tới Chrome có sẵn nếu không tải được trình duyệt Playwright.
+
+## Nội dung và chuyển động
+
+- 00–06: camera tiến qua không gian khung sáng, mở chủ đề đồng đội.
+- 06–22: **Neon → Omen → Yoru → Viper**, mỗi nhân vật một màn tiến từ xa, cận dần, rời khung để nhường nhân vật tiếp theo.
+- 22–34: ba artwork Free Fire lần lượt tiến vào không gian với góc nghiêng và lớp tiền cảnh.
+- 34–46: **Nakroth → Triệu Vân → Valhein** xuất hiện theo lượt trên các khung artwork 3D.
+- 46–50: ba game hội tụ trong một bố cục.
+- 50–56: lời mời tham gia và credit nhạc.
+
+Nhân vật là artwork 2D đặt trong không gian 3D (2.5D), không phải model có bộ xương để diễn hoạt tay/chân. Free Fire/Liên Quân hiện dùng artwork nguyên khung; đây là lựa chọn giữ nguyên hình gốc khi chưa có ảnh tách nền/model.
+
+## Nhạc / lồng tiếng
+
+Nhạc **The Fury — Scott Buckley**, CC BY 4.0, dùng miễn phí khi ghi nguồn đúng. Copy credit trong [docs/MUSIC_CREDITS.md](docs/MUSIC_CREDITS.md) vào mô tả khi đăng video. Nhạc được cắt đoạn và phối hiệu ứng; không tuyên bố không có bản quyền hoặc không bao giờ bị Content ID.
+
+[Hướng dẫn giọng Việt hào hùng và ghép giọng](docs/VOICE_GUIDE.md). Hai cách: tạo giọng sẵn trên ElevenLabs rồi tải file, hoặc dùng script API với khóa của bạn. Nhạc tự giảm khi có lời đọc. Chưa có lời đọc trong video hiện tại vì người dùng chưa gửi đoạn văn.
 
 ```powershell
-npm run render -- --width=1280 --fps=30
+npm run mix:voice -- output/VideoEsport-Cinematic-v2-1080p60.mp4 output/narration.mp3 output/VideoEsport-with-voice.mp4 0
 ```
 
-Thêm nhạc bạn có quyền sử dụng:
+## Chỉnh sửa cùng Claude
 
-```powershell
-npm run render -- --width=1920 --fps=60 "--audio=C:\Music\track.wav"
-```
+- `src/config.js`: timeline, nhân vật, chữ, màu, nhạc và mốc âm thanh.
+- `src/world.js`: bố trí không gian, đường xuất hiện nhân vật, camera, ánh sáng.
+- `src/main.js`, `src/style.css`: typography, preview, đồng bộ thời gian âm thanh.
+- `scripts/audio.mjs`, `scripts/render.mjs`: phối nhạc/giọng và xuất MP4.
+- [docs/CLAUDE_HANDOFF.md](docs/CLAUDE_HANDOFF.md): quyết định và phần tiếp tục.
 
-MP4 nằm trong `output/`. Render từng frame nên thời gian render có thể lâu hơn thời lượng video. Không phụ thuộc tốc độ phát preview. Nếu có Chrome cài riêng, đặt `CHROME_PATH` tới file thực thi (PowerShell: `$env:CHROME_PATH="C:\...\chrome.exe"`).
+`docs/runtime-assets.json` kiểm tra các ảnh bắt buộc; `docs/asset-sources.json` lưu nguồn ảnh gốc. Repo đã chứa toàn bộ 64 ảnh gốc và WebP; `docs/all-assets.json` lưu checksum. Tải lại ảnh Garena khi cần: `npm run assets`; import ZIP Valorant khác sau khi giải nén: `npm run import:valorant -- "C:\path\files"`.
 
-## Chỉnh sửa / làm cùng Claude
-
-- `src/config.js`: timeline, tên ban, tiêu đề, mô tả, màu, đường dẫn ảnh.
-- `src/main.js`: scene Three.js, camera, chuyển động, API seek chính xác.
-- `src/style.css`: font, vị trí chữ, vùng tối bảo vệ khả năng đọc.
-- `docs/CLAUDE_HANDOFF.md`: trạng thái hiện tại, hướng tiếp tục, các dữ liệu còn thiếu.
-- `docs/STORYBOARD.md`: nội dung từng cảnh.
-- `docs/ASSET_GUIDE.md`, `docs/asset-sources.json`: nguồn ảnh và checksum.
-
-Các file ảnh nhị phân, nhạc và video xuất được bỏ qua bởi Git. Repo có script tải 10 ảnh chính thức và nhập đủ 22 PNG Valorant do người dùng cung cấp. Không cần tải asset qua mạng lúc đang render, sau khi đã chuẩn bị xong.
-
-## Kiểm tra
-
-`npm run build` tạo bản web; `npm run check` kiểm tra asset/checksum, timeline liên tục, mốc scene, lỗi trình duyệt và tính lặp lại khi tua tới cùng một thời điểm. Sáu ảnh kiểm tra nằm ở `output/qa/`.
-
-Mã hiện tại là bản khởi đầu để duyệt hướng hình ảnh, chưa phải video phát hành chính thức. Artwork game thuộc chủ sở hữu tương ứng; nguồn chính thức không đồng nghĩa giấy phép sử dụng không giới hạn.
+Asset game thuộc các chủ sở hữu tương ứng; ghi nguồn trong [docs/ASSET_GUIDE.md](docs/ASSET_GUIDE.md). Repo chứa cả 22 PNG Valorant gốc, 10 JPG Free Fire/Liên Quân và 32 bản WebP. Nhạc gốc tải qua setup; khóa API và file render không được commit.

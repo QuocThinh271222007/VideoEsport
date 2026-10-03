@@ -1,37 +1,28 @@
-# Bàn giao cho Claude — VideoEsport
+# Bàn giao Claude — Cinematic v2
 
-## Mục tiêu và quyết định đã có
+## Yêu cầu đã nhận
 
-Video giới thiệu ban thể thao điện tử cho CLB, ba game Free Fire / Liên Quân / Valorant. Người dùng chọn khung ngang 45–60 giây và dùng tên ban tạm. Bản triển khai này dài 48 giây. Không có dữ liệu xác nhận về tên CLB, thành viên, thành tích, lịch tuyển, link đăng ký hoặc nhạc.
+Người dùng muốn video Esport cho CLB, ba game Valorant/Free Fire/Liên Quân, chiều sâu mạnh và nhân vật lần lượt xuất hiện; có nhạc kịch tính dùng hợp lệ; push repo hoàn chỉnh. Khung ngang 45–60 giây, dùng tên ban tạm. V2 dài 56 giây. Người dùng chưa đưa đoạn văn lồng tiếng.
 
-## Có sẵn
+## Đã triển khai
 
-- Vite + Three.js với ảnh nhân vật trên plane 3D, camera/particles/khung hình học; chữ HTML để tiếng Việt sắc nét.
-- Animation lấy thời gian tuyệt đối: `window.__film.seek(seconds)`. Tua ngược hay render offline phải cho cùng một frame.
-- Web preview có play/pause, scrub, fullscreen; export mode `?export=1` ẩn control.
-- Export Playwright → FFmpeg H.264 yuv420p, mặc định 1080p60, có tham số `--audio=`. Nhạc ngắn được pad; audio fade-out 2 giây cuối; không có nhạc mặc định.
-- 10 ảnh chính thức qua downloader + 22 ảnh Valorant người dùng cung cấp qua importer.
-- README hướng dẫn Windows; storyboard, nguồn/checksum và browser checks.
+- Scene tách riêng `world.js`: cổng sáng sâu 70+ đơn vị, sàn, vòng sáng, hạt, vật thể tiền cảnh; camera dolly/orbit và đường xuất hiện/thoát của từng nhân vật.
+- Valorant Neon/Omen/Yoru/Viper từng lượt 4 giây; FF ba artwork; LQ Nakroth/Triệu Vân/Valhein; ba game hội tụ ở cuối.
+- Depth buffer cho cutout giúp sàn không vẽ xuyên qua nhân vật. Artwork 2.5D, chưa có model rigged.
+- Nhạc The Fury (Scott Buckley, CC BY 4.0), excerpt 144–200s + SFX tự tổng hợp; credit tại MUSIC_CREDITS.md.
+- Preview dùng audio clock; hình xuất lấy thời gian tuyệt đối; ánh sáng dựa envelope tiền tính nên không lệch giữa preview/export.
+- Export mặc định có nhạc, 1080p60; hỗ trợ đoạn thử `--from/--to`.
+- Nhập voice, kiểm tra độ dài, sidechain ducking và remux không render lại hình. Có script gọi ElevenLabs bằng `.env` của người dùng; chưa gọi API thật do không có script/credentials.
+- Toàn bộ 64 ảnh (bản gốc + WebP) có trong repo theo yêu cầu người dùng; checksum tại all-assets.json. Nhạc tải/generate bằng `npm run setup`. Khóa API không commit.
 
-## Chia việc đề xuất
+## Việc tiếp theo cần dữ liệu người dùng
 
-Đây là tài liệu để người dùng chuyển cho Claude, chưa có cuộc trao đổi trực tiếp giữa hai agent.
+Tên/logo CLB, lời đọc, giọng mong muốn sau khi nghe mẫu, ảnh hoạt động/thành viên và CTA cụ thể. Không bịa thông tin này. Khi có script, chia theo các mốc trong STORYBOARD.md, tạo sample để duyệt, rồi ghép. Không tự làm voice clone người khác.
 
-- Codex: nền render, asset pipeline, kiểm tra scene và xuất MP4 đã được triển khai.
-- Claude ở vòng tiếp theo: tiếp nhận thông tin CLB, chốt lời đọc và nhạc cùng người dùng, nâng nhịp dựng theo beat, cảnh thành viên, logo và CTA; có thể chỉnh code trực tiếp trên nhánh riêng.
-- Trước khi sửa: đọc `src/config.js`, README và tài liệu này; xem thay đổi của nhánh đối tác để tránh ghi đè.
+Đây là tài liệu bàn giao trong repo, không phải bằng chứng đã liên hệ Claude trực tiếp. Claude nên fetch nhánh mới nhất trước khi sửa, làm nhánh riêng và tránh ghi đè thay đổi đồng thời.
 
-## Những việc cần tiếp tục
+## Kiểm tra
 
-1. Xem MP4 nháp, giữ hoặc chỉnh hướng hình ảnh theo phản hồi người dùng.
-2. Xin tên/logo CLB, màu nhận diện, nội dung bắt buộc, footage riêng, nhạc có quyền dùng.
-3. Thay cảnh đồng đội bằng hình hoạt động thực tế hoặc bố cục ba game, tránh để Valorant lấn át.
-4. Làm chuyển cảnh theo nhạc, thêm sound design; kiểm tra không cắt vào lời đọc.
-5. Giữ nội dung trong safe area 100 px ở bản 1080p; xem ở màn chiếu thực tế.
-6. Chạy `npm run build`, `npm run check`; xem screenshot và đoạn MP4 sau mỗi thay đổi thị giác đáng kể.
+`npm run build`; `npm run check` kiểm tra runtime asset/hash, timeline, từng lượt cast, khoảng di chuyển chiều sâu, browser errors và tua lặp lại. Cho phép sai số raster GPU 1/255 trên tối đa 0.1% số kênh ảnh, không chấp nhận thay đổi lớn hơn. Render xong kiểm tra FFprobe: H.264, 1920×1080, 60fps, 56 giây; AAC stereo; xem khung hình đầu/giữa/cuối.
 
-Không thêm backend/database. Không gọi artwork plane là model nhân vật 3D. Không tự bịa danh tính thành viên, thành tích hoặc lịch tuyển. Không commit nhạc/ảnh riêng vào repo công khai nếu chưa có chỉ định. Không chuyển sang một framework video khác trừ khi có lợi ích cụ thể được giải thích.
-
-## Môi trường kiểm tra trong phiên Codex
-
-CDN tải browser của Playwright trả HTML thay ZIP trong môi trường này. Đã dùng Chromium từ gói `@sparticuz/chromium` cài tạm, giải nén tại `/tmp/esport-chromium`, truyền `CHROME_PATH` để chạy. Đây là workaround cho máy dựng này, không phải dependency dự án. Trên máy người dùng, ưu tiên `npx playwright install chromium` hoặc Chrome có sẵn.
+Máy Codex dùng Chrome tạm ở `/tmp/esport-chromium/chromium` vì CDN Playwright trả tệp sai. Máy người dùng ưu tiên `npx playwright install chromium`. Không thêm workaround riêng của máy này vào dependencies.
