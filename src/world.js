@@ -72,8 +72,8 @@ export class FilmWorld {
  createEffects(){
   for(let i=0;i<80;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(1,1),this.tint(.5));this.scene.add(m);this.streaks.push(m)}
   this.slashes=[];for(let i=0;i<3;i++){const m=new THREE.Mesh(new THREE.TorusGeometry(4+i*.7,.035+i*.035,6,64,Math.PI*1.25),this.tint(.8));this.scene.add(m);this.slashes.push(m)}
-  for(let i=0;i<12;i++){
-   const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{tint:{value:new THREE.Color()},alpha:{value:.1},clock:{value:0}},vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'varying vec2 v;uniform vec3 tint;uniform float alpha;uniform float clock;void main(){vec2 p=(v-.5)*2.;float r=length(p);float n=.7+.3*sin(p.x*9.+clock)*sin(p.y*8.-clock*.7);float a=pow(max(0.,1.-r),2.)*n*alpha;gl_FragColor=vec4(tint,a);}'});
+  for(let i=0;i<6;i++){
+   const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{tint:{value:new THREE.Color()},alpha:{value:.1},clock:{value:0}},vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:'varying vec2 v;uniform vec3 tint;uniform float alpha;uniform float clock;void main(){vec2 p=(v-.5)*2.;float r=length(p);float n=.85;float a=pow(max(0.,1.-r),2.)*n*alpha;gl_FragColor=vec4(tint,a);}'});
    const m=new THREE.Mesh(new THREE.PlaneGeometry(12,12),mat);this.scene.add(m);this.smoke.push(m);
   }
   for(let i=0;i<5;i++){const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(new Float32Array(33*3),3));const m=new THREE.Line(g,new THREE.LineBasicMaterial({color:'#8cecff',transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending}));this.scene.add(m);this.bolts.push(m)}

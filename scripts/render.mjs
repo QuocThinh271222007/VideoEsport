@@ -20,7 +20,7 @@ await access(audio).catch(()=>{throw new Error('Soundtrack missing. Run npm run 
 const out=resolve(options.out||`output/VideoEsport-${width}x${height}-${fps}fps.mp4`),temp=out.replace(/\.mp4$/,'.partial.mp4');
 if(!out.endsWith('.mp4'))throw new Error('Output must end in .mp4');
 await mkdir(resolve(out,'..'),{recursive:true});
-const server=await createServer({server:{port:5173,strictPort:false,host:'127.0.0.1'}});await server.listen();
+const server=await createServer({server:{port:5173,strictPort:false,host:'127.0.0.1',hmr:false,watch:null}});await server.listen();
 let browser,encoder,successful=false;
 try{
  browser=await openBrowser();const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
