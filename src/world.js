@@ -124,7 +124,7 @@ export class FilmWorld {
    cam.set(Math.sin(local*.9)*1.5,.3,17-local*1.2);target.set(0,0,0);
   }else{
    const intro=s.kind==='intro';['neon','omen','yoru','viper'].forEach((key,i)=>{const a=this.art[key];a.root.visible=true;a.root.position.set((i-1.5)*5,-.5,-4-Math.abs(i-1.5)*3);a.mat.color.set(intro?'#183d50':'#2d5660');this.pose(a,t+i,.35)});
-   if(intro&&local<2.5){cam.set(-10+local*5,.3,10);target.set(-6+local*4,.5,-5)}else{cam.set(Math.sin(local*.7)*.5,.5,intro?21-(local-2.5)*2:18-local*.7);target.set(0,0,-3)}
+   const lt=intro?local*2.5/Math.min(2.5,duration*.55):local;if(intro&&lt<2.5){cam.set(-10+lt*5,.3,10);target.set(-6+lt*4,.5,-5)}else{cam.set(Math.sin(lt*.7)*.5,.5,intro?21-(lt-2.5)*2:18-lt*.7);target.set(0,0,-3)}
   }
   // Short, decaying impact shake, deterministic even when seeking backwards.
   const shake=impact*.13+pulse*.025;cam.x+=Math.sin(t*83)*shake;cam.y+=Math.cos(t*71)*shake;

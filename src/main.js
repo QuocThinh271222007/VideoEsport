@@ -2,8 +2,7 @@ import '@fontsource/barlow-condensed/700.css';
 import '@fontsource/be-vietnam-pro/400.css';
 import '@fontsource/be-vietnam-pro/600.css';
 import './style.css';
-import {film,scenes,audioConfig} from './config.js';
-import {cuts} from './montage.js';
+import {film,scenes,cuts,audioConfig} from './config.js';
 import {FootageLayer} from './footage.js';
 import {FilmWorld,clamp,smooth} from './world.js';
 const $=s=>document.querySelector(s),exportMode=new URLSearchParams(location.search).has('export');
@@ -17,7 +16,7 @@ window.addEventListener('resize',resize);document.addEventListener('fullscreench
 async function initialize(){
  await Promise.all([document.fonts.load('700 100px "Barlow Condensed"','ĐIỆN TỬ'),document.fonts.load('400 25px "Be Vietnam Pro"','ĐỒNG ĐỘI'),document.fonts.load('600 19px "Be Vietnam Pro"','ĐỒNG ĐỘI')]);await document.fonts.ready;
  const {w,h}=dimensions();await world.init($('#world'),w,h);await footage.init($('#cam'),scenes);
- const r=await fetch('/assets/audio/envelope.json');if(!r.ok)throw new Error('Chưa chuẩn bị nhạc. Chạy npm run audio.');envelope=(await r.json()).values;
+ const r=await fetch(audioConfig.envelope);if(!r.ok)throw new Error('Chưa chuẩn bị nhạc. Chạy npm run audio.');envelope=(await r.json()).values;
  $('#scrub').max=film.duration;$('#credit').textContent=audioConfig.credit;
  window.__film={ready:true,duration:film.duration,scenes:scenes.map(({start,end,kind})=>({start,end,kind})),seek:async t=>{const state=renderAt(t);await footage.seekExact();return state}};renderAt(0);if(!exportMode)requestAnimationFrame(tick);
 }
@@ -45,7 +44,7 @@ function renderAt(seconds){
  $('#cam').style.transform=`translate3d(${shx}px,${shy}px,0) scale(${zoom}) rotate(${roll}deg)`;
  $('#cam').style.filter=`blur(${enter*7+leave*5}px) brightness(${1+enter*.5+leave*.35+state.impact*.2+punch*.28}) saturate(1.14) contrast(1.05)`;
  // Chữ tiêu đề động: từng ký tự bật lên từ xa, thoát bằng zoom xuyên màn hình.
- const delay=s.kind==='intro'?2.2:s.kind==='community'?.3:s.kind==='outro'?.25:.04,hold=action?.95:duration-.6;
+ const delay=s.delay??(s.kind==='intro'?2.2:s.kind==='community'?.3:s.kind==='outro'?.25:.04),hold=action?.95:duration-.6;
  const out=smooth((local-hold)/(action?.3:.5));
  letters.forEach((el,i)=>{const p=smooth((local-delay-i*.032)/.5);el.style.opacity=p;el.style.transform=`translate3d(0,${(1-p)*50}px,0) scale(${1+(1-p)*.55})`;el.style.filter=p<1?`blur(${(1-p)*14}px)`:'none'});
  $('#headline').style.opacity=1-out;$('#headline').style.transform=`scale(${1+out*(action?.45:.06)})`;$('#headline').style.filter=out>0?`blur(${out*(action?18:6)}px)`:'none';

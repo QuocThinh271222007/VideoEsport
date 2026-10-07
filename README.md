@@ -15,6 +15,17 @@ Video ngang **84 giây** theo phong cách trailer: cắt nhanh theo nhịp, ch�
 
 Chi tiết: [docs/TRAILERS.md](docs/TRAILERS.md) · [nguồn footage](docs/TRAILER_SOURCES.json) · [credit nhạc](docs/MUSIC_CREDITS.md)
 
+## Hai bản dựng: 84 giây và 30 giây
+
+Mặc định là bản 84 giây. Bản **30 giây** (mở đầu 3.5s → cắt nhanh → ba cột → sinh hoạt/giao lưu/giải đấu → sân chơi lành mạnh → tuyển thành viên) chọn bằng `--profile=short`:
+
+```sh
+npm run audio:short
+npm run render:short -- --width=1920 --fps=60 --out=output/VideoEsport-30s-1080p60.mp4
+```
+
+Profile khai báo trong `src/config.js` (`profiles`), các đoạn montage bản ngắn là `s1–s4` trong `src/montage.js`. Preview: `npm run dev` rồi mở `/?profile=short`. Nhạc/envelope bản ngắn lưu riêng (`soundtrack-short.mp3`, `envelope-short.json`).
+
 ## Dựng và xuất video đầy đủ (có nhạc, 1080p60)
 
 Cần Node.js 22.12+ và FFmpeg trong PATH.
@@ -35,7 +46,7 @@ npm run render -- --width=1920 --fps=60 --out=output/VideoEsport-1080p60.mp4
 
 ## Dựng lại các đoạn montage
 
-Các đoạn `public/assets/montage/act1–5.mp4` (1280×720, 30fps, không tiếng) được cắt từ footage nguồn trong `public/assets/trailers/`:
+Các đoạn `public/assets/montage/act1–5.mp4` và `s1–s4.mp4` (1280×720, 30fps, không tiếng) được cắt từ footage nguồn trong `public/assets/trailers/`:
 
 ```sh
 npm run montage            # tất cả; hoặc: npm run montage -- act2 act4

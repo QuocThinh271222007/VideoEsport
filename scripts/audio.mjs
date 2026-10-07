@@ -37,7 +37,7 @@ export async function prepareAudio(){
  ffmpeg(['-i',audioConfig.source,'-i','public/assets/audio/sfx.wav','-filter_complex',`[0:a]atrim=start=${audioConfig.start}:duration=${film.duration},asetpts=PTS-STARTPTS,volume=1.0,afade=t=in:d=1.0,afade=t=out:st=${film.duration-2.2}:d=2.2[m];[m][1:a]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.89:level=0,asetpts=PTS-STARTPTS,apad,atrim=duration=${film.duration}[a]`,'-map','[a]','-t',String(film.duration),'-ar','48000','-ac','2','-c:a','libmp3lame','-b:a','192k',audioConfig.soundtrack]);
  const analysis=spawnSync('ffmpeg',['-v','error','-i',audioConfig.soundtrack,'-f','f32le','-ac','1','-ar','12000','pipe:1'],{maxBuffer:8*1024*1024});if(analysis.status!==0)throw new Error('Audio envelope decode failed');
  const values=[];for(let i=0;i<film.duration*60;i++){let sum=0;for(let j=0;j<200;j++){const offset=(i*200+j)*4;if(offset+4<=analysis.stdout.length){const x=analysis.stdout.readFloatLE(offset);sum+=x*x}}values.push(Number(Math.min(1,Math.sqrt(sum/200)*3.5).toFixed(4)))}
- await writeFile('public/assets/audio/envelope.json',JSON.stringify({fps:60,duration:film.duration,values}));
+ await writeFile(`public${audioConfig.envelope}`,JSON.stringify({fps:60,duration:film.duration,values}));
  console.log(`Prepared ${film.duration}s music + stereo transitions; credit in docs/MUSIC_CREDITS.md.`);
 }
 export async function mixVoice(voice,start=0,output='output/voice-mix.wav'){

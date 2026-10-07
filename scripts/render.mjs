@@ -4,10 +4,10 @@ import {spawn,spawnSync} from 'node:child_process';
 import {once} from 'node:events';
 import {createServer} from 'vite';
 import {openBrowser} from './browser.mjs';
-import {film,audioConfig} from '../src/config.js';
+import {film,audioConfig,profileName} from '../src/config.js';
 import {mixVoice} from './audio.mjs';
 
-// Usage: npm run render -- --width=1920 --fps=60 --audio=/path/music.wav
+// Usage: npm run render -- --width=1920 --fps=60 [--profile=short] [--audio=/path/music.wav]
 const options=Object.fromEntries(process.argv.slice(2).map(x=>{const i=x.indexOf('=');return [x.slice(2,i),x.slice(i+1)]}));
 const width=Number(options.width||1920),fps=Number(options.fps||60),height=width*9/16;
 const from=Number(options.from||0),to=Number(options.to||film.duration),duration=to-from;
@@ -17,14 +17,14 @@ if(spawnSync('ffmpeg',['-version'],{stdio:'ignore'}).status!==0)throw new Error(
 let audio=options.audio||audioConfig.soundtrack;
 if(options.voice)audio=await mixVoice(options.voice,Number(options['voice-start']||0));
 await access(audio).catch(()=>{throw new Error('Soundtrack missing. Run npm run audio first.');});
-const out=resolve(options.out||`output/VideoEsport-${width}x${height}-${fps}fps.mp4`),temp=out.replace(/\.mp4$/,'.partial.mp4');
+const out=resolve(options.out||`output/VideoEsport-${profileName}-${width}x${height}-${fps}fps.mp4`),temp=out.replace(/\.mp4$/,'.partial.mp4');
 if(!out.endsWith('.mp4'))throw new Error('Output must end in .mp4');
 await mkdir(resolve(out,'..'),{recursive:true});
 const server=await createServer({server:{port:5173,strictPort:false,host:'127.0.0.1',hmr:false,watch:null}});await server.listen();
 let browser,encoder,successful=false;
 try{
  browser=await openBrowser();const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
- page.on('pageerror',e=>console.error(e));await page.goto(server.resolvedUrls.local[0]+'?export=1');
+ page.on('pageerror',e=>console.error(e));await page.goto(server.resolvedUrls.local[0]+`?export=1&profile=${profileName}`);
  await page.waitForFunction(()=>window.__film?.ready||window.__film?.error,{},{timeout:60000});
  const error=await page.evaluate(()=>window.__film.error);if(error)throw new Error(error);
  const args=['-y','-f','image2pipe','-vcodec','mjpeg','-framerate',String(fps),'-i','pipe:0'];

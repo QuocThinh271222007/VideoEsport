@@ -9,6 +9,8 @@
     "assets": "node scripts/download-assets.mjs",
     "import:valorant": "node scripts/import-valorant.mjs",
     "montage": "node scripts/montage.mjs",
+    "render:short": "node scripts/render.mjs --profile=short",
+    "audio:short": "node scripts/audio.mjs --profile=short",
     "render": "node scripts/render.mjs",
     "check": "node scripts/check.mjs",
     "audio": "node scripts/audio.mjs",
