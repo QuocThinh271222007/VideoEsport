@@ -28,5 +28,5 @@ Kiểm tra: build PASS; asset/timeline/browser/scene-transition/deterministic-se
 
 - Logo đầu màn hình, căn giữa, lần lượt **Hội Sinh viên → Khoa → CLB Tin học** (`public/assets/logos/`).
 - Timeline mới (vẫn 84s): Free Fire cinematic 50–58, Liên Quân artwork 58–66, **Liên Quân highlight 66–74**, hội tụ 74–79, lời mời 79–84.
-- Cảnh highlight Liên Quân đọc `public/assets/trailers/lien-quan-highlight.mp4`. **Chưa có clip này trong repo** vì môi trường dựng không truy cập được YouTube/Garena; khi thiếu, cảnh tự dùng artwork Valhein/Nakroth. Thêm clip: `npm run import:lienquan -- --src=<file hoặc URL> --in=<giây bắt đầu> --duration=8`, rồi ghi nguồn vào `TRAILER_SOURCES.json`.
+- Cảnh highlight Liên Quân đọc `public/assets/trailers/lien-quan-highlight.mp4`. Clip lấy từ video TOP 5 highlights APL 2025 người dùng cung cấp (cảnh giao tranh tổng, nguồn 79–87s, đã tắt tiếng). Nếu file bị xóa, cảnh tự dùng artwork Valhein/Nakroth. Thêm clip: `npm run import:lienquan -- --src=<file hoặc URL> --in=<giây bắt đầu> --duration=8`, rồi ghi nguồn vào `TRAILER_SOURCES.json`.
 - Hiệu ứng: bỏ nhãn chương/khung chip kiểu slide; chữ tiêu đề hiện từng ký tự rồi zoom xuyên màn hình; camera đẩy vào + nảy theo nhịp; cú đập/flash khi cắt cảnh; light leak, hạt phim, vệt anamorphic theo nhịp nhạc.
