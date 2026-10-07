@@ -23,3 +23,10 @@ Nguồn đầy đủ, in-point, thời lượng và SHA-256 ở `TRAILER_SOURCES
 Nhạc: The Fury — Scott Buckley, CC BY 4.0; giữ credit trong mô tả khi đăng. Footage thuộc Riot Games/Garena và chủ sở hữu tương ứng; không tuyên bố là CC0. Toàn bộ audio của footage bị tắt trong bản dựng, không có voice-over mới.
 
 Kiểm tra: build PASS; asset/timeline/browser/scene-transition/deterministic-seek PASS. Footage dùng seek chờ frame giải mã khi export, luôn muted, và bị pause khi rời cảnh.
+
+## Cập nhật V5 — logo, highlight Liên Quân, hiệu ứng
+
+- Logo đầu màn hình, căn giữa, lần lượt **Hội Sinh viên → Khoa → CLB Tin học** (`public/assets/logos/`).
+- Timeline mới (vẫn 84s): Free Fire cinematic 50–58, Liên Quân artwork 58–66, **Liên Quân highlight 66–74**, hội tụ 74–79, lời mời 79–84.
+- Cảnh highlight Liên Quân đọc `public/assets/trailers/lien-quan-highlight.mp4`. **Chưa có clip này trong repo** vì môi trường dựng không truy cập được YouTube/Garena; khi thiếu, cảnh tự dùng artwork Valhein/Nakroth. Thêm clip: `npm run import:lienquan -- --src=<file hoặc URL> --in=<giây bắt đầu> --duration=8`, rồi ghi nguồn vào `TRAILER_SOURCES.json`.
+- Hiệu ứng: bỏ nhãn chương/khung chip kiểu slide; chữ tiêu đề hiện từng ký tự rồi zoom xuyên màn hình; camera đẩy vào + nảy theo nhịp; cú đập/flash khi cắt cảnh; light leak, hạt phim, vệt anamorphic theo nhịp nhạc.

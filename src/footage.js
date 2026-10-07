@@ -4,11 +4,17 @@ export class FootageLayer {
   this.videos=new Map();
   await Promise.all(scenes.filter(s=>s.video).map(async s=>{
    const v=document.createElement('video');v.className='footage';v.muted=true;v.playsInline=true;v.preload='auto';v.hidden=true;
-   container.insertBefore(v,container.querySelector('#shade'));this.videos.set(s.kind,v);
-   await new Promise((resolve,reject)=>{v.addEventListener('loadeddata',resolve,{once:true});v.addEventListener('error',()=>reject(new Error(`Không tải được footage: ${s.video}`)),{once:true});v.src=s.video;v.load()});
-   if(v.duration+.04<(s.videoIn||0)+s.end-s.start)throw new Error(`Footage quá ngắn: ${s.video}`);
+   container.append(v);this.videos.set(s.kind,v);
+   try{
+    await new Promise((resolve,reject)=>{v.addEventListener('loadeddata',resolve,{once:true});v.addEventListener('error',()=>reject(new Error(`Không tải được footage: ${s.video}`)),{once:true});v.src=s.video;v.load()});
+    if(v.duration+.04<(s.videoIn||0)+s.end-s.start)throw new Error(`Footage quá ngắn: ${s.video}`);
+   }catch(e){
+    // Cảnh optional (clip chưa nhập) dùng artwork dự phòng thay vì làm hỏng cả video.
+    if(!s.optional)throw e;v.remove();this.videos.delete(s.kind);console.warn(e.message);
+   }
   }));
  }
+ has(scene){return this.videos.has(scene.kind)}
  update(scene,time,playing,exportMode){
   const active=this.videos.get(scene.kind);this.active=active;this.target=(scene.videoIn||0)+time-scene.start;
   for(const v of this.videos.values()){v.hidden=v!==active;if(v!==active)v.pause()}

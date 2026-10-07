@@ -80,7 +80,7 @@ export class FilmWorld {
  }
  resize(w,h){this.renderer.setSize(w,h,false)}
  draw(t,s,energy=0){
-  const local=t-s.start,duration=s.end-s.start,p=clamp(local/duration),cast=casts[s.kind];
+  const local=t-s.start,duration=s.end-s.start,p=clamp(local/duration),cast=s.video?undefined:casts[s.kind];
   const slot=cast?duration/cast.length:4,k=cast?Math.min(cast.length-1,Math.floor(local/slot)):0,age=cast?local-k*slot:local;
   const active=cast?.[k]||null,key=active?.asset,phase=age<.72?'entry':age<1.75?'hero':age<2.75?'close':'strike';
   const impact=Math.exp(-Math.max(0,age-2.78)*12)*(age>=2.78?1:0),entry=out(age/.85),exit=smooth((age-3.55)/.45);

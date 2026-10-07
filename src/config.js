@@ -4,20 +4,23 @@ export const scenes = [
  {start:6,end:22,kind:'valorant',color:'#ff566b',label:'01 / VALORANT',eyebrow:'BẢN LĨNH TRONG TỪNG KHOẢNH KHẮC',title:['VALORANT'],description:'Đọc tình huống. Phối hợp chuẩn. Cùng bứt phá.',tags:['CHIẾN THUẬT','PHỐI HỢP']},
  {start:22,end:38,kind:'valorant-reel',color:'#ff566b',label:'VCT / HIGHLIGHTS + CINEMATIC',eyebrow:'',title:['VCT'],description:'',tags:[],video:'/assets/trailers/valorant-reel.mp4',videoIn:0},
  {start:38,end:50,kind:'free-fire',color:'#ffcd62',label:'02 / FREE FIRE',eyebrow:'VÀO TRẬN CÙNG NHAU',title:['FREE FIRE'],description:'Sẵn sàng cho mọi thử thách.',tags:['TỐC ĐỘ','SINH TỒN']},
- {start:50,end:62,kind:'free-fire-reel',color:'#ffcd62',label:'FREE FIRE / CINEMATIC',eyebrow:'',title:['FREE FIRE'],description:'',tags:[],video:'/assets/trailers/free-fire-cinematic.mp4',videoIn:3},
- {start:62,end:74,kind:'lien-quan',color:'#75d9ff',label:'03 / LIÊN QUÂN',eyebrow:'NĂM VỊ TRÍ. MỘT MỤC TIÊU.',title:['LIÊN QUÂN'],description:'Kết nối chiến thuật. Làm chủ giao tranh.',tags:['HIỆP ĐỒNG','BỨT PHÁ']},
- {start:74,end:78,kind:'community',color:'#99ffd6',label:'ONE COLLECTIVE',eyebrow:'BA TỰA GAME. CHUNG MỘT ĐAM MÊ.',title:['CHUNG ĐỘI HÌNH.'],description:'Giao lưu • Chia sẻ • Cùng nhau tiến bộ',tags:[]},
- {start:78,end:84,kind:'outro',color:'#99ffd6',label:'YOUR NEXT TEAM',eyebrow:'BAN THỂ THAO ĐIỆN TỬ',title:['ĐỒNG ĐỘI MỚI.','HÀNH TRÌNH MỚI.'],description:'Cùng chúng mình viết tiếp những khoảnh khắc đáng nhớ.',tags:['SẴN SÀNG VÀO ĐỘI?']},
+ {start:50,end:58,kind:'free-fire-reel',color:'#ffcd62',label:'FREE FIRE / CINEMATIC',eyebrow:'',title:['FREE FIRE'],description:'',tags:[],video:'/assets/trailers/free-fire-cinematic.mp4',videoIn:3},
+ {start:58,end:66,kind:'lien-quan',color:'#75d9ff',label:'03 / LIÊN QUÂN',eyebrow:'NĂM VỊ TRÍ. MỘT MỤC TIÊU.',title:['LIÊN QUÂN'],description:'Kết nối chiến thuật. Làm chủ giao tranh.',tags:['HIỆP ĐỒNG','BỨT PHÁ']},
+ // Highlight Liên Quân: nếu chưa có file (npm run import:lienquan) thì tự dùng artwork dự phòng ở casts['lien-quan-reel'].
+ {start:66,end:74,kind:'lien-quan-reel',color:'#75d9ff',label:'LIÊN QUÂN / HIGHLIGHT',eyebrow:'',title:['HIGHLIGHT'],description:'',tags:[],video:'/assets/trailers/lien-quan-highlight.mp4',videoIn:0,optional:true},
+ {start:74,end:79,kind:'community',color:'#99ffd6',label:'ONE COLLECTIVE',eyebrow:'BA TỰA GAME. CHUNG MỘT ĐAM MÊ.',title:['CHUNG ĐỘI HÌNH.'],description:'Giao lưu • Chia sẻ • Cùng nhau tiến bộ',tags:[]},
+ {start:79,end:84,kind:'outro',color:'#99ffd6',label:'YOUR NEXT TEAM',eyebrow:'BAN THỂ THAO ĐIỆN TỬ',title:['ĐỒNG ĐỘI MỚI.','HÀNH TRÌNH MỚI.'],description:'Cùng chúng mình viết tiếp những khoảnh khắc đáng nhớ.',tags:['SẴN SÀNG VÀO ĐỘI?']},
 ];
 export const assetPaths = {
  neon:'/assets/valorant/Neon.webp',omen:'/assets/valorant/Omen.webp',yoru:'/assets/valorant/Yoru.webp',viper:'/assets/valorant/Viper.webp',
  ff1:'/assets/free-fire/wallpaper-4.webp',ff2:'/assets/free-fire/wallpaper-2.webp',ff3:'/assets/free-fire/wallpaper-1.webp',
- lq1:'/assets/lien-quan/nakroth.webp',lq2:'/assets/lien-quan/trieu-van.webp',lq3:'/assets/lien-quan/valhein.webp',
+ lq1:'/assets/lien-quan/nakroth.webp',lq2:'/assets/lien-quan/trieu-van.webp',lq3:'/assets/lien-quan/valhein.webp',lq4:'/assets/lien-quan/nakroth-sieu-viet.webp',
 };
 export const casts = {
  valorant:[{asset:'neon',name:'NEON',line:'TỐC ĐỘ BỨT PHÁ'},{asset:'omen',name:'OMEN',line:'LÀM CHỦ THẾ TRẬN'},{asset:'yoru',name:'YORU',line:'TẠO NÊN BẤT NGỜ'},{asset:'viper',name:'VIPER',line:'KIỂM SOÁT KHÔNG GIAN'}],
  'free-fire':[{asset:'ff1',name:'BẢN LĨNH',line:'SẴN SÀNG GIAO TRANH'},{asset:'ff2',name:'BỨT PHÁ',line:'MỖI NGƯỜI MỘT THẾ MẠNH'},{asset:'ff3',name:'CHINH PHỤC',line:'CHUNG MỘT ĐÍCH ĐẾN'}],
- 'lien-quan':[{asset:'lq1',name:'NAKROTH',line:'MỞ LỐI GIAO TRANH'},{asset:'lq2',name:'TRIỆU VÂN',line:'TIẾN LÊN CÙNG ĐỒNG ĐỘI'},{asset:'lq3',name:'VALHEIN',line:'PHỐI HỢP ĐỂ BỨT PHÁ'}],
+ 'lien-quan':[{asset:'lq1',name:'NAKROTH',line:'MỞ LỐI GIAO TRANH'},{asset:'lq2',name:'TRIỆU VÂN',line:'TIẾN LÊN CÙNG ĐỒNG ĐỘI'}],
+ 'lien-quan-reel':[{asset:'lq3',name:'VALHEIN',line:'PHỐI HỢP ĐỂ BỨT PHÁ'},{asset:'lq4',name:'NAKROTH',line:'CHUNG MỘT NHỊP TRẬN ĐẤU'}],
 };
-export const cues=[0,2.5,6,8.78,10,12.78,14,16.78,18,20.78,22,28,32.8,38,40.78,42,44.78,46,48.78,50,62,64.78,66,68.78,70,72.78,74,75,76,77,78];
+export const cues=[0,2.5,6,8.78,10,12.78,14,16.78,18,20.78,22,28,32.8,38,40.78,42,44.78,46,48.78,50,54,58,60.78,62,64.78,66,68.78,70,72.78,74,75,76,79];
 export const audioConfig={source:'public/assets/audio/the-fury-source.mp3',start:144,soundtrack:'public/assets/audio/soundtrack.mp3',preview:'/assets/audio/soundtrack.mp3',credit:'The Fury — Scott Buckley · CC BY 4.0 · www.scottbuckley.com.au'};

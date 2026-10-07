@@ -8,6 +8,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "assets": "node scripts/download-assets.mjs",
     "import:valorant": "node scripts/import-valorant.mjs",
+    "import:lienquan": "node scripts/import-lienquan.mjs",
     "render": "node scripts/render.mjs",
     "check": "node scripts/check.mjs",
     "audio": "node scripts/audio.mjs",
