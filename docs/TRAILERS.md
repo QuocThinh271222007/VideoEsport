@@ -33,8 +33,8 @@ Bỏ kiểu trình chiếu từng nhân vật. Nội dung lấy từ Đề án t
 | 0–5 | Mở đầu: tên Ban + logo (3D) |
 | 5–19 | act1: 12 cú cắt nhanh, chữ TƯ DUY CHIẾN THUẬT / PHẢN XẠ / PHỐI HỢP / ĐỒNG ĐỘI |
 | 19–31 | act2: ba cột footage chạy song song, đổi cảnh mỗi 2 giây |
-| 31–45 | act3: công nghệ (phần cứng, mạng, phát sóng, phân tích, phát triển game), tông xanh |
-| 45–60 | act4: 15 cú cắt 1 giây — sinh hoạt, giao lưu, giải nội bộ, đội tuyển |
+| 31–45 | act3: công nghệ (nhãn SẮP TỚI), tông xanh |
+| 45–60 | act4: 15 cú cắt 1 giây — nhãn SẮP TỚI: sinh hoạt định kỳ, giao lưu, tổ chức giải đấu, xây dựng đội tuyển |
 | 60–70 | act5: chậm lại — chơi có trách nhiệm |
 | 70–76 | Hội tụ nhân vật (3D) |
 | 76–84 | Lời mời tuyển thành viên + credit nhạc |
@@ -45,3 +45,5 @@ Bỏ kiểu trình chiếu từng nhân vật. Nội dung lấy từ Đề án t
 - Nhịp cắt đặt theo lưới thời gian; chưa canh theo nhịp bản nhạc vì chưa phân tích được file nhạc. SFX đặt tại điểm vào cảnh và các lần chữ xuất hiện.
 - Tên game không xuất hiện trên màn hình: đề án nêu danh mục game từng giải do Ban Chủ nhiệm duyệt. Footage chỉ minh họa.
 - Nguồn footage Liên Quân: video TOP 5 highlights APL 2025 do người dùng cung cấp. Bản quyền thuộc Garena/APL và các chủ sở hữu tương ứng.
+
+- Ban mới thành lập nên chưa có hình hoạt động thật; footage game chỉ minh họa, các hoạt động ghi ở thì tương lai (SẮP TỚI) theo đề án.
