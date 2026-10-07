@@ -39,12 +39,10 @@
     "type": "official cinematic, not tournament highlights",
     "sha256": "54351dad3839635f3f057fe460cbe8be507d9af6ed9de2ede4c9bfe11e7c10be"
   },
-  "lienQuanHighlight": {
-    "file": "public/assets/trailers/lien-quan-highlight.mp4",
-    "source": "public/assets/trailers/top5-highlights-apl-2025.mp4",
+  "aplTop5": {
+    "file": "public/assets/trailers/top5-highlights-apl-2025.mp4",
     "title": "TOP 5 highlights chung kết APL 2025 (do người dùng cung cấp)",
-    "in": 79,
-    "duration": 8,
-    "note": "Cảnh giao tranh tổng BRU vs FW, bán kết APL 2025; bỏ tiếng. Bản quyền thuộc Garena/APL và chủ sở hữu."
+    "usedBy": "public/assets/montage/act1-act4 qua src/montage.js",
+    "note": "Chỉ dùng vùng gameplay, bỏ tiếng. Bản quyền thuộc Garena/APL và chủ sở hữu."
   }
 }

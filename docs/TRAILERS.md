@@ -24,9 +24,24 @@ Nhạc: The Fury — Scott Buckley, CC BY 4.0; giữ credit trong mô tả khi �
 
 Kiểm tra: build PASS; asset/timeline/browser/scene-transition/deterministic-seek PASS. Footage dùng seek chờ frame giải mã khi export, luôn muted, và bị pause khi rời cảnh.
 
-## Cập nhật V5 — logo, highlight Liên Quân, hiệu ứng
+## V6 — dựng nhanh theo nhịp, giới thiệu Ban Thể thao điện tử
 
-- Logo đầu màn hình, căn giữa, lần lượt **Hội Sinh viên → Khoa → CLB Tin học** (`public/assets/logos/`).
-- Timeline mới (vẫn 84s): Free Fire cinematic 50–58, Liên Quân artwork 58–66, **Liên Quân highlight 66–74**, hội tụ 74–79, lời mời 79–84.
-- Cảnh highlight Liên Quân đọc `public/assets/trailers/lien-quan-highlight.mp4`. Clip lấy từ video TOP 5 highlights APL 2025 người dùng cung cấp (cảnh giao tranh tổng, nguồn 79–87s, đã tắt tiếng). Nếu file bị xóa, cảnh tự dùng artwork Valhein/Nakroth. Thêm clip: `npm run import:lienquan -- --src=<file hoặc URL> --in=<giây bắt đầu> --duration=8`, rồi ghi nguồn vào `TRAILER_SOURCES.json`.
-- Hiệu ứng: bỏ nhãn chương/khung chip kiểu slide; chữ tiêu đề hiện từng ký tự rồi zoom xuyên màn hình; camera đẩy vào + nảy theo nhịp; cú đập/flash khi cắt cảnh; light leak, hạt phim, vệt anamorphic theo nhịp nhạc.
+Bỏ kiểu trình chiếu từng nhân vật. Nội dung lấy từ Đề án thành lập Ban Thể thao điện tử (CLB Tin học, NH 2026-2027): tư duy chiến thuật, phản xạ, phối hợp; thi đấu có tổ chức, có luật; công nghệ trong esports; sinh hoạt, giao lưu, giải nội bộ, đội tuyển; chơi có trách nhiệm, không cá cược, kết thúc trước 22:00, Ban không thu phí riêng; tuyển thành viên tháng 10/2026.
+
+| Giây | Cảnh |
+|---|---|
+| 0–5 | Mở đầu: tên Ban + logo (3D) |
+| 5–19 | act1: 12 cú cắt nhanh, chữ TƯ DUY CHIẾN THUẬT / PHẢN XẠ / PHỐI HỢP / ĐỒNG ĐỘI |
+| 19–31 | act2: ba cột footage chạy song song, đổi cảnh mỗi 2 giây |
+| 31–45 | act3: công nghệ (phần cứng, mạng, phát sóng, phân tích, phát triển game), tông xanh |
+| 45–60 | act4: 15 cú cắt 1 giây — sinh hoạt, giao lưu, giải nội bộ, đội tuyển |
+| 60–70 | act5: chậm lại — chơi có trách nhiệm |
+| 70–76 | Hội tụ nhân vật (3D) |
+| 76–84 | Lời mời tuyển thành viên + credit nhạc |
+
+- Danh sách cảnh cắt: `src/montage.js`. Tạo lại clip: `npm run montage` (cần `top5-highlights-apl-2025.mp4`, `valorant-reel.mp4`, `free-fire-cinematic.mp4` trong `public/assets/trailers/`). Clip ra ở `public/assets/montage/act1–5.mp4`.
+- Video giải đấu Liên Quân chỉ lấy vùng gameplay (bỏ bảng điểm, camera tuyển thủ). Mỗi cú cắt có nhịp đập zoom/sáng/rung trong preview.
+- Chữ động: `words` trong `src/config.js` (giây trong cảnh, độ dài, dòng chữ '/' xuống dòng).
+- Nhịp cắt đặt theo lưới thời gian; chưa canh theo nhịp bản nhạc vì chưa phân tích được file nhạc. SFX đặt tại điểm vào cảnh và các lần chữ xuất hiện.
+- Tên game không xuất hiện trên màn hình: đề án nêu danh mục game từng giải do Ban Chủ nhiệm duyệt. Footage chỉ minh họa.
+- Nguồn footage Liên Quân: video TOP 5 highlights APL 2025 do người dùng cung cấp. Bản quyền thuộc Garena/APL và các chủ sở hữu tương ứng.

@@ -32,14 +32,16 @@ h1 .ln{display:block;white-space:nowrap;color:#f2f6f8}h1 .ln.acc{color:var(--acc
 #film[data-kind=intro] #tags,#film[data-kind=outro] #tags{justify-content:center}
 #film[data-kind=community] #copy{top:730px;left:100px;right:100px;max-width:1720px;text-align:center}#film[data-kind=community] h1{font-size:92px;margin-bottom:12px}#film[data-kind=community] #eyebrow{margin-bottom:12px}#film[data-kind=community] #description{max-width:none;font-size:21px}
 #film[data-kind=community] #shade{background:linear-gradient(0deg,#050b13 0%,#050b13d0 16%,transparent 54%)}
-/* Nhãn nhân vật: vạch sáng quét ra, không dùng khung */
-#hero{position:absolute;left:105px;bottom:150px;max-width:760px;z-index:3;text-shadow:0 3px 24px #000}
-#hero-name{font:700 118px/1 'Barlow Condensed';letter-spacing:4px;color:#fff;font-style:italic}
-#hero-bar{height:4px;width:0;margin:10px 0 14px;background:linear-gradient(90deg,var(--accent),transparent);box-shadow:0 0 22px var(--accent)}
-#hero-line{font-size:17px;letter-spacing:5px;color:var(--accent);font-weight:600}
+/* Chữ động trên footage */
+#words{position:absolute;inset:0;z-index:4;pointer-events:none}
+.word{position:absolute;left:0;right:0;top:50%;margin-top:-170px;text-align:center;will-change:transform,opacity,filter;opacity:0}
+.word small{display:block;font:600 22px 'Be Vietnam Pro';letter-spacing:8px;color:var(--accent);margin-bottom:18px;text-shadow:0 2px 18px #000}
+.wl{font:700 190px/.95 'Barlow Condensed';text-transform:uppercase;color:#fff;text-shadow:0 6px 60px #000d,0 0 2px #0008;will-change:transform,opacity,filter}
+.wl:last-of-type:not(:first-of-type){color:var(--accent)}
+.word i{display:block;height:6px;width:520px;margin:26px auto 0;background:linear-gradient(90deg,transparent,var(--accent),transparent);box-shadow:0 0 28px var(--accent);transform-origin:center;transform:scaleX(0)}
 #bottom{position:absolute;bottom:62px;left:100px;right:100px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:3px;color:#b6c4ca;opacity:.6;z-index:3}#bottom i{font-style:normal;color:var(--accent);padding:0 14px}#brand{color:var(--accent)}
 #credit{position:absolute;bottom:17px;left:100px;font-size:12px;letter-spacing:1px;color:#a3b1bd;z-index:9}#progress{position:absolute;bottom:0;left:0;height:3px;background:var(--accent);z-index:9;box-shadow:0 0 12px var(--accent)}
-#film.has-footage #hero{display:none}#film.has-footage #vignette{opacity:.55}
+#film.has-footage #vignette{opacity:.55}
 #controls{height:64px;display:flex;justify-content:center;align-items:center;gap:18px;padding:0 5vw}button{background:#20322d;color:#d9ffee;border:1px solid #416954;border-radius:5px;padding:10px 18px;font:inherit;cursor:pointer}input{flex:1;accent-color:#9bffca;max-width:900px}#time{font:13px monospace;white-space:nowrap}#notice{text-align:center;font-size:10px;letter-spacing:2px;color:#8c9b9e}#error{position:fixed;left:20px;right:20px;top:20px;background:#772e36;display:none;padding:18px;z-index:99}
 body.export #controls,body.export #notice{display:none}body.export #stage{height:100vh;display:block}body.export #film{transform-origin:top left}
 #film.has-footage #world{visibility:hidden}
