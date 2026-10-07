@@ -1,3 +1,9 @@
+# Current direction — 2026-10-07
+
+User removed custom rig animations and voice-over. Use v3 artwork treatment plus VCT/game cinematic footage. Current timeline is 84 seconds; README.md and TRAILERS.md are authoritative. Do not reintroduce custom rig or voice-over without a new request. Prior handoff below is historical.
+
+---
+
 # Bàn giao Claude — Action Trailer v3
 
 ## Yêu cầu đã nhận

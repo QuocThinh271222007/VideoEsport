@@ -1,0 +1,42 @@
+{
+  "valorantReel": {
+    "file": "public/assets/trailers/valorant-reel.mp4",
+    "segments": [
+      {
+        "source": "vct-kickoff.mp4",
+        "url": "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/b8fcc8055662545e61d6e15a04196e4a59156b6c.mp4?accountingTag=VAL",
+        "in": 13.3,
+        "duration": 6
+      },
+      {
+        "source": "masters-bangkok.webm",
+        "url": "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/36ecd86c4f0c74d1ecb5385285ab1478f9f3c3ea.webm?accountingTag=VAL",
+        "in": 0,
+        "duration": 4.8
+      },
+      {
+        "source": "vct-kickoff.mp4",
+        "url": "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/b8fcc8055662545e61d6e15a04196e4a59156b6c.mp4?accountingTag=VAL",
+        "in": 23.5,
+        "duration": 3
+      },
+      {
+        "source": "vct-stage1.webm",
+        "url": "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/8c8f0a41ec480c76dc579ca2363a4d5ee402ea2d.webm?accountingTag=VAL",
+        "in": 6,
+        "duration": 2.2
+      }
+    ],
+    "sourcePage": "https://playvalorant.com/en-us/news/esports/",
+    "sha256": "16a2f991384817f91297a69dd330a5a44d07694372fdbb09c0778f7ddb8dc9d6"
+  },
+  "freeFire": {
+    "file": "public/assets/trailers/free-fire-cinematic.mp4",
+    "url": "https://cdn.wildflamestudio.com/common/test/official/e68883609a0e69a03cc586852ff77dd7.mp4",
+    "sourcePage": "https://ff.garena.com/en",
+    "in": 3,
+    "duration": 12,
+    "type": "official cinematic, not tournament highlights",
+    "sha256": "54351dad3839635f3f057fe460cbe8be507d9af6ed9de2ede4c9bfe11e7c10be"
+  }
+}
