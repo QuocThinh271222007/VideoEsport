@@ -5,8 +5,8 @@ import {mkdir,access} from 'node:fs/promises';
 import {acts,sources,actDuration} from '../src/montage.js';
 const W=1280,H=720,FPS=30,out='public/assets/montage';
 const grades={'':'',tech:',colorbalance=bs=.14:bm=.08:rs=-.05,eq=saturation=.9:contrast=1.08',warm:',colorbalance=rs=.06:bs=-.05,eq=saturation=1.08'};
-// Vùng gameplay của video giải đấu: bỏ bảng tỉ số, minimap, danh sách và camera tuyển thủ.
-const crops={apl:'crop=1229:691:346:124,'};
+// Vùng gameplay của video giải đấu: bỏ bảng tỉ số, minimap, danh sách và HUD ngoài rìa.
+const crops={apl:'crop=1229:691:346:124,',lola:'crop=1267:713:327:60,',lolb:'crop=1267:713:327:60,',ffa:'crop=1728:972:96:54,'};
 const inputs=[],filters=[];
 function shotChain(s,i,label,idx,width){
  // Mỗi cú cắt đẩy vào hoặc kéo ra nhẹ để có cảm giác camera chuyển động.

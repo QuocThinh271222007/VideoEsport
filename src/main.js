@@ -18,7 +18,7 @@ async function initialize(){
  await Promise.all([document.fonts.load('700 100px "Barlow Condensed"','ĐIỆN TỬ'),document.fonts.load('400 25px "Be Vietnam Pro"','ĐỒNG ĐỘI'),document.fonts.load('600 19px "Be Vietnam Pro"','ĐỒNG ĐỘI')]);await document.fonts.ready;
  const {w,h}=dimensions();await world.init($('#world'),w,h);await footage.init($('#cam'),scenes);
  const r=await fetch('/assets/audio/envelope.json');if(!r.ok)throw new Error('Chưa chuẩn bị nhạc. Chạy npm run audio.');envelope=(await r.json()).values;
- $('#brand').textContent=film.brand;$('#scrub').max=film.duration;$('#credit').textContent=audioConfig.credit;
+ $('#scrub').max=film.duration;$('#credit').textContent=audioConfig.credit;
  window.__film={ready:true,duration:film.duration,scenes:scenes.map(({start,end,kind})=>({start,end,kind})),seek:async t=>{const state=renderAt(t);await footage.seekExact();return state}};renderAt(0);if(!exportMode)requestAnimationFrame(tick);
 }
 const logos=[...document.querySelectorAll('#logos img')];let letters=[];

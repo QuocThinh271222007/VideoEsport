@@ -1,25 +1,29 @@
 // Danh sách cảnh dựng nhanh (montage). Dùng chung cho scripts/montage.mjs (tạo clip) và preview (nhịp cắt).
-// src: apl = video APL 2025 (cắt vùng gameplay, bỏ bảng điểm/camera tuyển thủ), val = reel VCT, ff = Free Fire cinematic.
+// src: apl = Liên Quân APL 2025, lola/lolb = LoL ASIAD 2026 (VIE vs KSA, 2 phần), ffa = Free Fire FFWS (WAG), val = reel VCT, ff = Free Fire cinematic.
+// Footage giải đấu được cắt bỏ phần bảng điểm/HUD ngoài rìa (xem crops trong scripts/montage.mjs).
 // [nguồn, giây bắt đầu trong nguồn, độ dài trên timeline, tốc độ (<1 = chậm)]
 const S=(src,at,dur,speed=1)=>({src,at,dur,speed});
 export const sources={
  apl:'public/assets/trailers/top5-highlights-apl-2025.mp4',
  val:'public/assets/trailers/valorant-reel.mp4',
  ff:'public/assets/trailers/free-fire-cinematic.mp4',
+ lola:'public/assets/trailers/vie-vs-ksa-asiad-2026-part1.mp4',
+ lolb:'public/assets/trailers/vie-vs-ksa-asiad-2026-part2.mp4',
+ ffa:'public/assets/trailers/wag-ffws-sea-fall-2024-part1.mp4',
 };
 export const acts={
- // 14s: cắt nhanh trộn ba nguồn
- act1:{start:5,grade:'',shots:[S('apl',81,1.2),S('val',6,1),S('apl',83,1.4),S('ff',4,1.2),S('apl',91,1.2),S('val',8,1),S('apl',108,1.4),S('ff',9,1.2),S('val',1.5,1),S('apl',126,1.4),S('ff',6,1),S('apl',129,1)]},
- // 12s: ba cột chạy song song, mỗi cột đổi cảnh mỗi 2 giây
+ // 14s: cắt nhanh trộn các game
+ act1:{start:5,grade:'',shots:[S('lola',29,1.2),S('val',6,1),S('ffa',48,1.4),S('apl',83,1.2),S('ffa',160,1.2),S('val',8,1),S('lolb',65,1.4),S('ffa',100,1.2),S('apl',108,1),S('lolb',121,1.4),S('ffa',80,1),S('ff',4,1)]},
+ // 12s: ba cột chạy song song (Free Fire | Liên Quân | LoL), mỗi cột đổi cảnh mỗi 2 giây
  act2:{start:19,triptych:[
-  [S('ff',1,2,.7),S('ff',4,2,.8),S('ff',6,2,.5),S('ff',9,2,.6),S('ff',10,2,.6),S('ff',3,2,.5)],
+  [S('ffa',30,2),S('ffa',38,2),S('ffa',46,2),S('ffa',98,2),S('ffa',126,2),S('ffa',150,2)],
   [S('apl',82,2),S('apl',84,2),S('apl',92,2),S('apl',110,2),S('apl',127,2),S('apl',131,2)],
-  [S('val',6,2,.75),S('val',8,2,.6),S('val',9.4,2,.5),S('val',14,2,.5),S('val',14.9,2,.5),S('val',1,2,.5)],
+  [S('lolb',17,2),S('lola',45,2),S('lolb',33,2),S('lolb',73,2),S('lola',109,2),S('lolb',129,2)],
  ]},
- // 14s: giao tranh dài hơn, phủ tông xanh công nghệ
- act3:{start:31,grade:'tech',shots:[S('apl',16,2.4),S('apl',20,2.4),S('apl',24,2.4),S('apl',37,2.2),S('apl',54.5,2.4),S('apl',94,2.2)]},
+ // 14s: giao tranh dài hơn, phủ tông xanh (không chữ)
+ act3:{start:31,grade:'tech',shots:[S('lola',29,2.4),S('lolb',129,2.4),S('apl',24,2.4),S('lola',109,2.2),S('lolb',77,2.4),S('apl',94,2.2)]},
  // 15s: 15 cú cắt, mỗi cú 1 giây
- act4:{start:45,grade:'',shots:[S('apl',113,1),S('ff',1,1),S('apl',117,1),S('val',14,1),S('apl',131,1),S('ff',10,1),S('val',14.9,1),S('apl',134,1),S('ff',7,1),S('apl',137,1),S('val',9.4,1),S('apl',145,1),S('ff',3,1),S('apl',57,1),S('val',4,1)]},
+ act4:{start:45,grade:'',shots:[S('lola',41,1),S('ffa',36,1),S('apl',113,1),S('lolb',21,1),S('ffa',146,1),S('val',14,1),S('apl',117,1),S('lola',113,1),S('ffa',170,1),S('lolb',93,1),S('val',14.9,1),S('apl',131,1),S('ffa',178,1),S('lolb',137,1),S('ffa',158,1)]},
  // 10s: chậm lại, cảnh rộng
  act5:{start:60,grade:'warm',shots:[S('ff',10,2,.6),S('ff',11,2,.5),S('ff',9,2,.7),S('ff',1,2,.6),S('ff',3,2,.5)]},
 };

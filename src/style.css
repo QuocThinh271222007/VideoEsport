@@ -20,7 +20,7 @@
 /* Chữ tiêu đề động từng ký tự */
 #copy{position:absolute;top:300px;left:100px;z-index:3;max-width:900px}
 #eyebrow{font-size:17px;letter-spacing:3px;color:var(--accent);margin-bottom:24px;font-weight:600;text-shadow:0 2px 18px #000}
-h1{font-family:'Barlow Condensed',sans-serif;font-size:137px;line-height:.98;letter-spacing:2px;font-weight:700;margin:0 0 25px;text-transform:uppercase;text-shadow:0 5px 50px #000c;will-change:transform,filter,opacity}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:137px;line-height:1.2;letter-spacing:2px;font-weight:700;margin:0 0 25px;text-transform:uppercase;text-shadow:0 5px 50px #000c;will-change:transform,filter,opacity}
 h1 .ln{display:block;white-space:nowrap;color:#f2f6f8}h1 .ln.acc{color:var(--accent)}.ch{display:inline-block;will-change:transform,opacity,filter}
 #description{font-size:22px;line-height:1.7;color:#d3dee5;margin:0;max-width:700px;text-shadow:0 2px 20px #000}
 #tags{display:flex;gap:30px;margin-top:26px}#tags span{font-size:14px;letter-spacing:4px;color:#e4eef2;text-shadow:0 2px 14px #000}#tags span:first-child{color:var(--accent)}
@@ -34,12 +34,11 @@ h1 .ln{display:block;white-space:nowrap;color:#f2f6f8}h1 .ln.acc{color:var(--acc
 #film[data-kind=community] #shade{background:linear-gradient(0deg,#050b13 0%,#050b13d0 16%,transparent 54%)}
 /* Chữ động trên footage */
 #words{position:absolute;inset:0;z-index:4;pointer-events:none}
-.word{position:absolute;left:0;right:0;top:50%;margin-top:-170px;text-align:center;will-change:transform,opacity,filter;opacity:0}
+.word{position:absolute;left:0;right:0;top:50%;margin-top:-215px;text-align:center;will-change:transform,opacity,filter;opacity:0}
 .word small{display:block;font:600 22px 'Be Vietnam Pro';letter-spacing:8px;color:var(--accent);margin-bottom:18px;text-shadow:0 2px 18px #000}
-.wl{font:700 190px/.95 'Barlow Condensed';text-transform:uppercase;color:#fff;text-shadow:0 6px 60px #000d,0 0 2px #0008;will-change:transform,opacity,filter}
+.wl{font:700 176px/1.22 'Barlow Condensed';text-transform:uppercase;color:#fff;text-shadow:0 6px 60px #000d,0 0 2px #0008;will-change:transform,opacity,filter}
 .wl:last-of-type:not(:first-of-type){color:var(--accent)}
 .word i{display:block;height:6px;width:520px;margin:26px auto 0;background:linear-gradient(90deg,transparent,var(--accent),transparent);box-shadow:0 0 28px var(--accent);transform-origin:center;transform:scaleX(0)}
-#bottom{position:absolute;bottom:62px;left:100px;right:100px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:3px;color:#b6c4ca;opacity:.6;z-index:3}#bottom i{font-style:normal;color:var(--accent);padding:0 14px}#brand{color:var(--accent)}
 #credit{position:absolute;bottom:17px;left:100px;font-size:12px;letter-spacing:1px;color:#a3b1bd;z-index:9}#progress{position:absolute;bottom:0;left:0;height:3px;background:var(--accent);z-index:9;box-shadow:0 0 12px var(--accent)}
 #film.has-footage #vignette{opacity:.55}
 #controls{height:64px;display:flex;justify-content:center;align-items:center;gap:18px;padding:0 5vw}button{background:#20322d;color:#d9ffee;border:1px solid #416954;border-radius:5px;padding:10px 18px;font:inherit;cursor:pointer}input{flex:1;accent-color:#9bffca;max-width:900px}#time{font:13px monospace;white-space:nowrap}#notice{text-align:center;font-size:10px;letter-spacing:2px;color:#8c9b9e}#error{position:fixed;left:20px;right:20px;top:20px;background:#772e36;display:none;padding:18px;z-index:99}
