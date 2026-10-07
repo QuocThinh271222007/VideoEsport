@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "policy": "Only add a local clip after its usage rights/source have been reviewed. Prefer user/club captures or publisher media explicitly usable for creator content.",
+  "clips": [
+    {"id":"valorant","localPath":"public/assets/gameplay/valorant.mp4","sourceUrl":"https://playvalorant.com/vi-vn/media/","status":"candidate","note":"Official VALORANT media page states supplied media may be used by press/content creators; verify the exact selected video/file and Riot legal terms before committing footage."},
+    {"id":"free-fire","localPath":"public/assets/gameplay/free-fire.mp4","sourceUrl":"https://ff.garena.com/universe/en/video","status":"candidate","note":"Official Free Fire video hub. Select an exact publisher clip and verify usage terms, or replace with club-owned gameplay capture."},
+    {"id":"lien-quan","localPath":"public/assets/gameplay/lien-quan.mp4","sourceUrl":"https://lienquan.garena.vn/","status":"capture-preferred","note":"Prefer club/user-owned gameplay capture. Official site is recorded for provenance, not as blanket reuse permission."}
+  ]
+}
